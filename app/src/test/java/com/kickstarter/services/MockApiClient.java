@@ -27,7 +27,11 @@ import com.kickstarter.models.Message;
 import com.kickstarter.models.MessageThread;
 import com.kickstarter.models.Project;
 import com.kickstarter.models.ProjectNotification;
+<<<<<<< HEAD
 import com.kickstarter.services.apiresponses.ProjectStatsEnvelope;
+=======
+import com.kickstarter.models.ProjectStats;
+>>>>>>> additions, deletions
 import com.kickstarter.models.SurveyResponse;
 import com.kickstarter.models.Update;
 import com.kickstarter.models.User;
@@ -37,7 +41,6 @@ import com.kickstarter.services.apiresponses.CommentsEnvelope;
 import com.kickstarter.services.apiresponses.DiscoverEnvelope;
 import com.kickstarter.services.apiresponses.MessageThreadEnvelope;
 import com.kickstarter.services.apiresponses.MessageThreadsEnvelope;
-import com.kickstarter.services.apiresponses.ProjectStatsEnvelope;
 import com.kickstarter.services.apiresponses.ProjectsEnvelope;
 import com.kickstarter.ui.data.MessageSubject;
 
@@ -158,7 +161,7 @@ public class MockApiClient implements ApiClientType {
   }
 
   @Override
-  public @NonNull Observable<ProjectStatsEnvelope> fetchProjectStats(final @NonNull Project project) {
+  public @NonNull Observable<ProjectStats> fetchProjectStats(final @NonNull Project project) {
     return Observable.empty();
   }
 
