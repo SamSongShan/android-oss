@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_gravity="center_horizontal"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <android.support.v7.widget.RecyclerView
+    android:id="@+id/dashboard_reward_stats_recycler_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+  <TableLayout
+    android:id="@+id/creator_dashboard_reward_stats_table"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+    <TableRow>
+      <TextView
+        android:layout_column="0"
+        android:text="Top Rewards"
+        android:paddingStart="@dimen/grid_new_4"
+        android:paddingEnd="@dimen/grid_new_4" />
+      <TextView
+        android:layout_column="1"
+        android:text="Pledged"
+        android:padding="3dip" />
+      <TextView
+        android:layout_column="2"
+        android:text="Backers"
+        android:paddingStart="@dimen/grid_new_4"
+        android:paddingEnd="@dimen/grid_new_4"  />
+    </TableRow>
+
+    <TableRow>
+      <TextView
+        android:id="@+id/reward_minimum_text_view"
+        android:layout_column="0"
+        android:paddingStart="@dimen/grid_new_4"
+        android:paddingEnd="@dimen/grid_new_4"  />
+      <TextView
+        android:id="@+id/reward_pledged_text_view"
+        android:layout_column="1"
+        android:paddingStart="@dimen/grid_new_4"
+        android:paddingEnd="@dimen/grid_new_4" />
+      <TextView
+        android:id="@+id/reward_backer_count_text_view"
+        android:layout_column="2"
+        android:paddingStart="@dimen/grid_new_4"
+        android:paddingEnd="@dimen/grid_new_4" />
+    </TableRow>
+  </TableLayout>
+
+</RelativeLayout>
+
+

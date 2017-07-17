@@ -14,6 +14,9 @@ import com.kickstarter.ui.viewholders.CreatorDashboardRewardStatsViewHolder;
 import com.kickstarter.ui.viewholders.KSViewHolder;
 
 import java.util.Collections;
+import java.util.List;
+
+import rx.Observable;
 
 public class CreatorDashboardAdapter extends KSAdapter {
 
@@ -21,7 +24,7 @@ public class CreatorDashboardAdapter extends KSAdapter {
     if (sectionRow.section() == 0) {
       return R.layout.dashboard_funding_view;
     } else {
-      return R.layout.dashboard_reward_stats_recycler_view;
+      return R.layout.dashboard_reward_stats_table_view;
     }
   }
 
@@ -36,6 +39,15 @@ public class CreatorDashboardAdapter extends KSAdapter {
   public void takeProjectAndStats(final @NonNull Pair<Project, ProjectStatsEnvelope> projectAndStatsEnvelope) {
     sections().clear();
     sections().add(Collections.singletonList(projectAndStatsEnvelope));
+
+    final Project project = projectAndStatsEnvelope.first;
+    final List<ProjectStatsEnvelope.RewardStats> rewardStatsList = projectAndStatsEnvelope.second.rewardDistribution();
+    if (rewardStatsList != null) {
+      addSection(Observable.from(rewardStatsList)
+        .map(rewardStats -> Pair.create(project, rewardStats))
+        .toList().toBlocking().single()
+      );
+    }
     notifyDataSetChanged();
   }
 }
